@@ -1,0 +1,20 @@
+*~
+.*~
+.un~
+.*.un~
+
+**/raw/
+**/processed/
+
+# Tex aux files.
+*.aux
+*.log
+*.gz
+*.toc
+*.csv
+
+**/present/
+**/__pycache__/
+**/build/
+**/.idea/
+

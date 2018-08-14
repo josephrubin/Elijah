@@ -1,0 +1,7 @@
+Attaching the MEMS sensors to the patients with tape has proven to be difficult because it's uncomfortable for the small children. A possible solution is to take the sensors off of their boards to make them small. We would mount them in a line to a flexible piece of material attached to foam, and they would be held up against the neck of the patient. With this method, we allow the possibility of integrating additional sensors.
+    
+We are interfacing with the MEMS sensors at 5 volts on the SPI lines but the sensors require just 3.3 volts. Although there have not been any clear negative repercussions, we may be damaging the sensors, or at least establishing sub-par communication.
+    
+When reading for over about 65 seconds, our timestamp overflows. For now, we can fix this when processing the data, but we may want to increase the size of our timestamp.
+    
+We do not have logic for controlling the power consumption of the MEMS devices. We have them running on high power for capturing, but we don't yet put them in sleep mode when not in use.

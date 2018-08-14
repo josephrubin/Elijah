@@ -1,0 +1,33 @@
+Our output sensor readings should be in the range of a 16bit signed value:
+-32768,32767
+Empirically, they usually stay within
+-32764,32764
+Probably because the lower bits may be used for additional info.
+These lower bits are largely insignificant (which is why they are oftened used for other purposes in the first place).
+
+This range is mapped onto a range of DPS (degrees per second).
+The DPS range is determined by some configuration bits in the 0x11 (config) address.
+This range may go as high as +/-2000dps or as low as +/-125dps, depending on the configuration.
+
+The general rule: the smaller the DPS range, the more sensitive the device.
+(This seems to make sense, because we get more possible output values for every degree/sec).
+
+Therefore, we should configure our DPS range as small as we can, so long as our output values stay within that range.
+Our range will probably be on the smaller side, because the swallowing motion will not be very fast (speculation).
+But if the entire body moves, our readings may rise outside of our configured range.
+
+Therefore, we have two options:
+1) Increase the configured range to capture all data, at the cost of sensitivity, or
+2) Realize that we are capping our output data to the height of a small range,
+   which causes us to lose the magnitude of big readings (which is likely a non-issue),
+   and allows us to keep the higher sensitivity.
+Option 2 is preferred.
+
+Calibration, with respect to output range:
+The greater the output range, the "lower" the resting error of the gyro (the reading when at rest, which should be 0).
+In reality, while the absolute readings are lower, it doesn't mean that the error is any less in terms of deg/sec.
+When we change the output range, we must either
+1) recalibrate, which costs more time, or
+3) scale our calibration constants inversely with the size of our output range, which may be less accurate.
+Option 1 is preferred.
+But we should pick one output range and stick with it, and this will not apply.

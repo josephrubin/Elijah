@@ -1,0 +1,8 @@
+spec/
+Documentation/specification. Start here.
+
+trans/
+Program for the transmitter/Arduino.
+
+recv/
+Program for the receiver/data analysis.
