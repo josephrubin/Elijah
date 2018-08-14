@@ -3,8 +3,10 @@
 .un~
 .*.un~
 
-**/raw/
-**/processed/
+**/raw/**/*
+**/processed/**/*
+!**/raw/**/.gitkeep
+!**/processed/**/.gitkeep
 
 # Tex aux files.
 *.aux
