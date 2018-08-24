@@ -1,8 +1,10 @@
+# Vim.
 *~
 .*~
 .un~
 .*.un~
 
+# Data captures.
 **/raw/**/*
 **/processed/**/*
 !**/raw/**/.gitkeep
@@ -15,6 +17,7 @@
 *.toc
 *.csv
 
+# Python.
 **/present/
 **/__pycache__/
 **/build/
